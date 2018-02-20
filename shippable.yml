@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "8"
+
+build:
+  # pre_ci_boot:
+    # image_name: drydock/u16all
+    # image_tag: master
+    # pull: true
+    #options: "--net=host"
+
+  ci:
+    - chromedriver -version
+    - yarn install
+    - npm run test_webdriver
+    - curl --upload-file ./screenshot.png https://transfer.sh/screenshot.png
